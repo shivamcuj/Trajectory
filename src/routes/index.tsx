@@ -203,9 +203,11 @@ function Dashboard() {
             </Button>
           )}
 
-          <Button onClick={() => { setEditing(null); setDialogOpen(true); }}>
-            <Plus className="h-4 w-4" /> New entry
-          </Button>
+          {unlocked && (
+            <Button onClick={() => { setEditing(null); setDialogOpen(true); }}>
+              <Plus className="h-4 w-4" /> New entry
+            </Button>
+          )}
         </div>
       </div>
 
