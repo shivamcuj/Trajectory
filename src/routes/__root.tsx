@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 import { AppHeader } from "@/components/app-header";
+import { EditModeProvider } from "@/lib/edit-mode-context";
 
 import appCss from "../styles.css?url";
 
@@ -74,10 +75,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <div className="flex min-h-screen flex-col">
-      <AppHeader />
-      <main className="flex-1">
-        <Outlet />
-      </main>
+      <EditModeProvider>
+        <AppHeader />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+      </EditModeProvider>
       <Toaster richColors position="top-right" />
     </div>
   );
