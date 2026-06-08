@@ -272,7 +272,7 @@ function Dashboard() {
   );
 }
 
-function EmptyState({ hasEntries, onAdd }: { hasEntries: boolean; onAdd: () => void }) {
+function EmptyState({ hasEntries, unlocked, onAdd }: { hasEntries: boolean; unlocked: boolean; onAdd: () => void }) {
   return (
     <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed py-20 text-center">
       <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary">
@@ -286,7 +286,7 @@ function EmptyState({ hasEntries, onAdd }: { hasEntries: boolean; onAdd: () => v
           ? "Try clearing filters or searching for something else."
           : "Add your first course, project, or milestone to start building your portfolio."}
       </p>
-      {!hasEntries && (
+      {!hasEntries && unlocked && (
         <Button className="mt-6" onClick={onAdd}>
           <Plus className="h-4 w-4" /> Add first entry
         </Button>
