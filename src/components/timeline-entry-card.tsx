@@ -80,19 +80,21 @@ export function TimelineEntryCard({ entry, unlocked, onEdit, onDeleted }: Props)
               </p>
             )}
           </div>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="opacity-0 transition-opacity group-hover:opacity-100">
-                <MoreHorizontal className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={onEdit}><Pencil className="h-4 w-4" /> Edit</DropdownMenuItem>
-              <DropdownMenuItem onClick={handleDelete} disabled={busy} className="text-destructive focus:text-destructive">
-                <Trash2 className="h-4 w-4" /> Delete
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {unlocked && (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="opacity-0 transition-opacity group-hover:opacity-100">
+                  <MoreHorizontal className="h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={onEdit}><Pencil className="h-4 w-4" /> Edit</DropdownMenuItem>
+                <DropdownMenuItem onClick={handleDelete} disabled={busy} className="text-destructive focus:text-destructive">
+                  <Trash2 className="h-4 w-4" /> Delete
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          )}
         </div>
 
         {entry.description && (
