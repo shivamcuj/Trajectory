@@ -1,7 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles } from "lucide-react";
+import { Sparkles, Lock, Unlock } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useEditMode } from "@/lib/edit-mode-context";
+import { AdminUnlockDialog } from "@/components/admin-unlock-dialog";
 
 export function AppHeader() {
+  const { unlocked, lock } = useEditMode();
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
@@ -16,6 +23,20 @@ export function AppHeader() {
             </div>
           </div>
         </Link>
+
+        {unlocked ? (
+          <Button variant="ghost" size="sm" onClick={lock}>
+            <Lock className="mr-1.5 h-3.5 w-3.5" />
+            Lock
+          </Button>
+        ) : (
+          <Button variant="ghost" size="sm" onClick={() => setDialogOpen(true)}>
+            <Unlock className="mr-1.5 h-3.5 w-3.5" />
+            Unlock to edit
+          </Button>
+        )}
+
+        <AdminUnlockDialog open={dialogOpen} onOpenChange={setDialogOpen} />
       </div>
     </header>
   );

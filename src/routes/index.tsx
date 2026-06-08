@@ -14,6 +14,7 @@ import {
 import { CATEGORIES, CATEGORY_KEYS, type CategoryKey } from "@/lib/categories";
 import { EntryFormDialog } from "@/components/entry-form-dialog";
 import { TimelineEntryCard } from "@/components/timeline-entry-card";
+import { useEditMode } from "@/lib/edit-mode-context";
 import type { EntryWithAttachments } from "@/lib/types";
 
 export const Route = createFileRoute("/")({
@@ -36,6 +37,7 @@ function Dashboard() {
 
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editing, setEditing] = useState<EntryWithAttachments | null>(null);
+  const { unlocked } = useEditMode();
 
   const fetchEntries = async () => {
     setLoading(true);
