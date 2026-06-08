@@ -250,6 +250,7 @@ function Dashboard() {
                     <TimelineEntryCard
                       key={e.id}
                       entry={e}
+                      unlocked={unlocked}
                       onEdit={() => { setEditing(e); setDialogOpen(true); }}
                       onDeleted={fetchEntries}
                     />
