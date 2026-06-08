@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { format, parseISO } from "date-fns";
-import { Plus, Search, Filter, Sparkles, BookOpen, Loader2, X } from "lucide-react";
+import { Plus, Search, Filter, BookOpen, Loader2, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { PROFILE } from "@/lib/profile";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -112,16 +114,25 @@ function Dashboard() {
         <div aria-hidden className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
         <div aria-hidden className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
         <div className="relative">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-medium backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5" />
-            Your engineering profolio
+          <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-start">
+            <Avatar className="h-24 w-24 ring-4 ring-white/30 sm:h-28 sm:w-28">
+              <AvatarImage src={PROFILE.photoUrl} alt={PROFILE.name} />
+              <AvatarFallback className="bg-white/20 text-2xl font-display font-semibold text-white">
+                {PROFILE.name[0]}
+              </AvatarFallback>
+            </Avatar>
+            <div className="text-center sm:text-left">
+              <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">
+                Hey, I'm {PROFILE.name}
+              </h1>
+              <p className="mt-1 text-sm text-primary-foreground/80 sm:text-base">
+                {PROFILE.tagline}
+              </p>
+              <p className="mt-3 max-w-xl text-sm text-primary-foreground/75 sm:text-base">
+                {PROFILE.bio}
+              </p>
+            </div>
           </div>
-          <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-balance sm:text-5xl">
-            Build a portfolio worth showing.
-          </h1>
-          <p className="mt-3 max-w-xl text-sm text-primary-foreground/85 sm:text-base">
-            Log every certification, project, skill and milestone. Filter, search, and showcase your B.Tech journey — all in one place.
-          </p>
 
           <div className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-5 sm:gap-3">
             {CATEGORY_KEYS.map((k) => {
