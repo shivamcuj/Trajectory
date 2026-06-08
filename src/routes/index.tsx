@@ -228,7 +228,7 @@ function Dashboard() {
           <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
         </div>
       ) : filtered.length === 0 ? (
-        <EmptyState hasEntries={entries.length > 0} onAdd={() => { setEditing(null); setDialogOpen(true); }} />
+        <EmptyState hasEntries={entries.length > 0} unlocked={unlocked} onAdd={() => { setEditing(null); setDialogOpen(true); }} />
       ) : (
         <div className="relative">
           {/* Vertical line */}
