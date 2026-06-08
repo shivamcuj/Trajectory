@@ -16,11 +16,12 @@ import { supabase } from "@/integrations/supabase/client";
 
 interface Props {
   entry: EntryWithAttachments;
+  unlocked: boolean;
   onEdit: () => void;
   onDeleted: () => void;
 }
 
-export function TimelineEntryCard({ entry, onEdit, onDeleted }: Props) {
+export function TimelineEntryCard({ entry, unlocked, onEdit, onDeleted }: Props) {
   const cat = CATEGORIES[entry.category as CategoryKey];
   const Icon = cat.icon;
   const [busy, setBusy] = useState(false);
