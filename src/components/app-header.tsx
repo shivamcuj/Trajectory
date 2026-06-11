@@ -17,7 +17,7 @@ export function AppHeader() {
             <Sparkles className="h-4 w-4 text-primary-foreground" strokeWidth={2.5} />
           </div>
           <div className="leading-tight">
-            <div className="font-display text-base font-semibold tracking-tight">Profolio</div>
+            <div className="font-display text-base font-semibold tracking-tight">Trajectory</div>
             <div className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
               Engineering Portfolio
             </div>

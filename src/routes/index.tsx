@@ -20,7 +20,7 @@ import type { EntryWithAttachments } from "@/lib/types";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Profolio — Your Engineering Timeline" },
+      { title: "Trajectory — Your Engineering Timeline" },
       { name: "description", content: "Track every course, project, skill, and milestone of your B.Tech journey." },
     ],
   }),

@@ -32,13 +32,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Profolio — Engineering Student Timeline" },
+      { title: "Trajectory — Engineering Student Timeline" },
       {
         name: "description",
         content:
           "A professional timeline portfolio for first-year B.Tech students to log courses, projects, skills, and milestones.",
       },
-      { property: "og:title", content: "Profolio — Engineering Student Timeline" },
+      { property: "og:title", content: "Trajectory — Engineering Student Timeline" },
       { property: "og:description", content: "Document your engineering journey, beautifully." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

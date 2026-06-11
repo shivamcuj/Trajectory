@@ -1,4 +1,4 @@
-# Profolio — Engineering Student Timeline Portfolio
+# Trajectory — Engineering Student Timeline Portfolio
 
 A zero-login personal portfolio timeline app for B.Tech students to log, organize, and showcase their academic journey. Anyone can view; only the admin can edit after unlocking with a server-verified password.
 
@@ -75,7 +75,7 @@ Built with [TanStack Start](https://tanstack.com/start), React 19, Supabase (Dat
 
 ```bash
 git clone <repo-url>
-cd profolio
+cd trajectory
 npm install
 ```
 
